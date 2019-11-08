@@ -6,13 +6,17 @@ from .views import (
     EmployeeDetailView,
     EmployeeUpdateView,
     EmployeeDelete,
+    EmployeeTemplateView,
+    EmployeeView,
     )
 
 app_name='createcrud'
 urlpatterns = [
     path('create/',EmployeeCreateView.as_view(),name="index" ),
-    path('detail/<int:id>',EmployeeDetailView.as_view(),name="detail" ),
-    path('<int:id>/update',EmployeeUpdateView.as_view(),name="update" ),
-    path('<int:pk>/delete',EmployeeDelete.as_view(),name="delete" ),
-    path('',EmployeeListView.as_view(),name="list" ),
+    path('detail/<int:pk>',EmployeeDetailView.as_view(),name="detail" ),
+    path('update/<int:pk>/',EmployeeUpdateView.as_view(),name="update" ),
+    path('delete/<int:pk>/',EmployeeDelete.as_view(),name="delete" ),
+    path('template',EmployeeTemplateView.as_view(),name="template"),
+    path('temview',EmployeeView.as_view(),name="template"),
+    path('list/',EmployeeListView.as_view(),name="list" ),
 ]

@@ -10,5 +10,11 @@ class Employee(models.Model):
     class Meta:
         db_table='employee'
 
-    def get_absolute_url(self):
-        return reverse("createcrud:detail",kwargs={"id":self.id})
+    def get_absolute_url_detail(self):
+        return reverse("contact:detail", kwargs={"pk": self.pk})
+
+    def get_absolute_url_update(self):
+        return reverse("contact:update", kwargs={"pk": self.pk})
+
+    def get_absolute_url_delete(self):
+        return reverse("contact:delete", kwargs={"pk": self.pk})
